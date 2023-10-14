@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import Post from '../components/Post.vue'
+
 </script>
 
 <template>
-  <Post />
+  <div>BlogListView</div>
 </template>
+
+<style scoped>
+
+</style>
