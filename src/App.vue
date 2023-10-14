@@ -19,6 +19,3 @@ function toggleSidebar() {
     </main>
   </div>
 </template>
-
-<style scoped>
-</style>
