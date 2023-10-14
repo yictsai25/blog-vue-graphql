@@ -18,9 +18,15 @@
   "dependencies": {
     "@apollo/client": "^3.8.5",
     "@vue/apollo-composable": "4.0.0-beta.11",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
+    "lucide-vue-next": "^0.287.0",
     "pinia": "^2.1.6",
+    "radix-vue": "^0.4.1",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss-animate": "^1.0.7",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
