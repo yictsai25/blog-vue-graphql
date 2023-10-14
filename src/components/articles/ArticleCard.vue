@@ -27,8 +27,8 @@ const { post } = toRefs(props)
           {{ post.user?.name }}
         </span>
       </div>
-      <a
-        href="#"
+      <RouterLink
+        :to="{ name: 'blog-detail', params: { id: post.id } }"
         class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
       >
         Read more
@@ -39,7 +39,7 @@ const { post } = toRefs(props)
             clip-rule="evenodd"
           />
         </svg>
-      </a>
+      </RouterLink>
     </div>
   </article>
 </template>

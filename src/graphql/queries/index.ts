@@ -25,7 +25,7 @@ export const gqlGetAllPosts = graphql(`
     }
 `)
 
-export const gqlGetPosts = graphql(`
+export const gqlGetPost = graphql(`
     query getPost($postId: ID!) {
         post(id: $postId) {
             id
@@ -34,6 +34,15 @@ export const gqlGetPosts = graphql(`
             user {
                 id
                 name
+                email
+            }
+            comments {
+                data {
+                    id
+                    name
+                    email
+                    body
+                }
             }
         }
     }
