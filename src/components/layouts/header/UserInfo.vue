@@ -5,8 +5,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-// eslint-disable-next-line unused-imports/no-unused-vars
-const props = defineProps({
+const _props = defineProps({
   userName: {
     type: String,
     required: true,
