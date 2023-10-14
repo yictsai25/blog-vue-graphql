@@ -47,8 +47,8 @@ const sidebarToggleClass = computed(() => {
       </form>
       <ul class="space-y-2">
         <li>
-          <a
-            href="/"
+          <RouterLink
+            to="/"
             class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <svg
@@ -63,11 +63,11 @@ const sidebarToggleClass = computed(() => {
               />
             </svg>
             <span class="ml-3">Overview</span>
-          </a>
+          </RouterLink>
         </li>
         <li>
-          <a
-            href="/1"
+          <RouterLink
+            to="/1"
             class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <svg
@@ -82,12 +82,12 @@ const sidebarToggleClass = computed(() => {
             >
               4
             </span>
-          </a>
+          </RouterLink>
         </li>
 
         <li>
-          <a
-            href="/2"
+          <RouterLink
+            to="/2"
             class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <svg
@@ -102,11 +102,11 @@ const sidebarToggleClass = computed(() => {
             >
               4
             </span>
-          </a>
+          </RouterLink>
         </li>
         <li>
-          <a
-            href="/3"
+          <RouterLink
+            to="/3"
             class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <svg
@@ -121,7 +121,7 @@ const sidebarToggleClass = computed(() => {
             >
               4
             </span>
-          </a>
+          </RouterLink>
         </li>
       </ul>
       <ul
@@ -152,7 +152,3 @@ const sidebarToggleClass = computed(() => {
     </div>
   </aside>
 </template>
-
-<style scoped>
-
-</style>
