@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toRefs } from 'vue'
-import type { Post } from '@/types/blogTypes'
+import type { Post } from '@/graphql/generated/graphql'
 
 const props = defineProps<{
   post: Post
@@ -24,7 +24,7 @@ const { post } = toRefs(props)
     <div class="flex justify-between items-center">
       <div class="flex items-center space-x-4">
         <span class="font-medium dark:text-white">
-          {{ post.user.name }}
+          {{ post.user?.name }}
         </span>
       </div>
       <a

@@ -1,37 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
-import gql from 'graphql-tag'
+import { gqlGetAllPosts } from '@/graphql/queries'
 import ArticleList from '@/components/articles/ArticleList.vue'
-
-const gqlGetAllPosts = gql`
-query getAllPost {
-  posts {
-    data {
-      id
-      title
-      body
-      user {
-        id
-        name
-        email
-      }
-      comments {
-        data {
-          id
-          name
-          email
-          body
-        }
-      }
-    }
-  }
-}
-`
+import type { Post } from '@/graphql/generated/graphql'
 
 const { result, loading, error } = useQuery(gqlGetAllPosts)
 
-const posts = computed(() => (result.value?.posts?.data ?? []))
+const posts = computed(() => (result.value?.posts?.data ?? []) as Post[])
 </script>
 
 <template>
