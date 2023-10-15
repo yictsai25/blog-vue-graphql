@@ -1,10 +1,20 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import UserInfo from '@/components/layouts/header/UserInfo.vue'
 
 const emit = defineEmits(['toggleSidebar'])
 
 function toggleSidebar() {
   emit('toggleSidebar')
+}
+
+const router = useRouter()
+const searchTerm = ref('')
+
+function handleSearch() {
+  if (searchTerm.value)
+    router.push({ name: 'search-results', query: { keyword: searchTerm.value } })
 }
 </script>
 
@@ -52,7 +62,7 @@ function toggleSidebar() {
             My Blog GraphQL
           </p>
 
-          <form action="#" method="GET" class="hidden md:block md:pl-2">
+          <form class="hidden md:block md:pl-2" @submit.prevent="handleSearch">
             <label for="topbar-search" class="sr-only">Search</label>
             <div class="relative md:w-64">
               <div
@@ -73,6 +83,7 @@ function toggleSidebar() {
               </div>
               <input
                 id="topbar-search"
+                v-model="searchTerm"
                 type="text"
                 name="email"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"

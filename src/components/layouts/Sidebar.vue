@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const props = defineProps({
   isOpen: Boolean,
@@ -8,6 +9,14 @@ const props = defineProps({
 const sidebarToggleClass = computed(() => {
   return props.isOpen ? '' : '-translate-x-full'
 })
+
+const router = useRouter()
+const searchTerm = ref('')
+
+function handleSearch() {
+  if (searchTerm.value)
+    router.push({ name: 'search-results', query: { keyword: searchTerm.value } })
+}
 </script>
 
 <template>
@@ -17,7 +26,7 @@ const sidebarToggleClass = computed(() => {
     aria-label="Sidenav"
   >
     <div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800">
-      <form action="#" method="GET" class="md:hidden mb-2">
+      <form class="md:hidden mb-2" @submit.prevent="handleSearch">
         <label for="sidebar-search" class="sr-only">Search</label>
         <div class="relative">
           <div
@@ -38,6 +47,7 @@ const sidebarToggleClass = computed(() => {
           </div>
           <input
             id="sidebar-search"
+            v-model="searchTerm"
             type="text"
             name="search"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
