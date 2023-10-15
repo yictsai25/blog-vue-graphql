@@ -15,6 +15,12 @@ const router = createRouter({
       component: () => import('@/views/BlogDetailView.vue'),
     },
     {
+      path: '/search',
+      name: 'search-results',
+      component: () => import('@/views/BlogSearchView.vue'),
+      props: route => ({ keyword: route.query.keyword }),
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('@/views/NotFoundView.vue'),
