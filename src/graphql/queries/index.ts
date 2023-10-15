@@ -1,8 +1,10 @@
 import { graphql } from '@/graphql/generated'
 
-export const gqlGetAllPosts = graphql(`
-    query getAllPost {
-        posts {
+export const gqlGetPostsPerPage = graphql(`
+    query getPostsPerPage(
+        $options: PageQueryOptions
+    ) {
+        posts(options: $options) {
             data {
                 id
                 title
@@ -12,14 +14,9 @@ export const gqlGetAllPosts = graphql(`
                     name
                     email
                 }
-                comments {
-                    data {
-                        id
-                        name
-                        email
-                        body
-                    }
-                }
+            }
+            meta {
+                totalCount
             }
         }
     }
