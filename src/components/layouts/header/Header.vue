@@ -1,20 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import UserInfo from '@/components/layouts/header/UserInfo.vue'
+import useSearch from '@/composables/useSearch'
 
 const emit = defineEmits(['toggleSidebar'])
-
+const { searchTerm, handleSearch } = useSearch()
 function toggleSidebar() {
   emit('toggleSidebar')
-}
-
-const router = useRouter()
-const searchTerm = ref('')
-
-function handleSearch() {
-  if (searchTerm.value)
-    router.push({ name: 'search-results', query: { keyword: searchTerm.value } })
 }
 </script>
 
@@ -58,9 +49,11 @@ function handleSearch() {
             <span class="sr-only">Toggle sidebar</span>
           </button>
 
-          <p class="md:pr-10 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            My Blog GraphQL
-          </p>
+          <RouterLink :to="{ name: 'blog-list' }">
+            <p class="md:pr-10 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              My Blog GraphQL
+            </p>
+          </RouterLink>
 
           <form class="hidden md:block md:pl-2" @submit.prevent="handleSearch">
             <label for="topbar-search" class="sr-only">Search</label>

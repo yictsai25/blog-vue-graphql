@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+import useSearch from '@/composables/useSearch'
 
 const props = defineProps({
   isOpen: Boolean,
@@ -10,13 +10,7 @@ const sidebarToggleClass = computed(() => {
   return props.isOpen ? '' : '-translate-x-full'
 })
 
-const router = useRouter()
-const searchTerm = ref('')
-
-function handleSearch() {
-  if (searchTerm.value)
-    router.push({ name: 'search-results', query: { keyword: searchTerm.value } })
-}
+const { searchTerm, handleSearch } = useSearch()
 </script>
 
 <template>

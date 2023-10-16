@@ -14,9 +14,11 @@ const { post } = toRefs(props)
     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
   >
     <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-      <a href="#">{{
-        post.title
-      }}</a>
+      <RouterLink :to="{ name: 'blog-detail', params: { id: post.id } }">
+        {{
+          post.title
+        }}
+      </RouterLink>
     </h2>
     <p class="mb-5 font-light text-gray-500 dark:text-gray-400">
       {{ post.body }}
